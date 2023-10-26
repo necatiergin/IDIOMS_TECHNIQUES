@@ -1,8 +1,8 @@
 #include "student.h"
 #include <iostream>
 
-Student::Student(std::string name, std::string surname)
-	: m_name{std::move(name)}, m_surname{std::move(surname)}
+Student::Student(const char* pname, const char* psurname)
+	: m_name{pname}, m_surname{psurname}
 {
 }
 
