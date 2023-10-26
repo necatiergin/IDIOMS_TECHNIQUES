@@ -1,6 +1,5 @@
 #include "student.h"
 
-
 int main()
 {
 	Student s{ "umut", "kotankiran"};
