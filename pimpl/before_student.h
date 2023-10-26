@@ -6,11 +6,11 @@
 
 class Student {
 public:
-	Student(std::string name, std::string surname);
+	Student(const char *pname, const char* psurname);
 	void add_grade(int);
 	void print()const;
 	// other public members
-	
+
 private:
 	std::string m_name;
 	std::string m_surname;
