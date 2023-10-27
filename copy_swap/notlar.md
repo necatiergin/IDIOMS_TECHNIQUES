@@ -40,7 +40,7 @@ Bu durumda atama operatör fonksiyonu özyinelemeli _(recursive)_ olarak atama o
 
 + idiyomun genel tanımı (implementasyonlar farklı olabilir)
   + kaynakları geri veren bir _destructor_ olsun
-  + _copy ctor_ doğal şekilde yazılsın (deep- copy) ya da duruma göre_ default_ edilsin.
+  + _copy ctor_ doğal şekilde yazılsın _(deep - copy)_ ya da duruma göre _default_ edilsin.
   + iki nesnenin içeriğini takas eden (muhtemelen elemanlarını) bir _swap_ fonksiyonu yazılsın. Bu sınıfın üye fonksiyonu da olabilir sınıfa _friend_ bir global _(free)_ fonksiyon da olabilir. 
 Genel tercih çağrılacak _swap_ işlevinin __friend__ olması. 
     + Bu fonksiyon içinde neden using _std::swap_ bildirimi yapıyoruz? 
