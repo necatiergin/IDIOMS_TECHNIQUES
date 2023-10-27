@@ -4,9 +4,23 @@
 + Sınıfın atama operatör fonksiyonlarının yazılmasında kullanılıyor.
 + Modern C++ öncesi implementasyonlara dikkat. 
 Taşıma semantiği _(move semantics)_ söz konusu olduğunda taşıyan atama operatör __(move assignment)__ fonksiyonunu da dikkate almak gerekiyor.
-+ İdiyom atama operatör fonksiyonlarına __strong exception guarantee__ kazandırmayı hedefliyor. (Temel C++ kursunda detaylı anlatılıyor.)
++ İdiyom atama operatör fonksiyonlarına __strong exception guarantee__ kazandırmayı ve kod tekrarından kaçınmayı sağlıyor. (Temel C++ kursunda detaylı anlatılıyor.)
 + Elde edilebilecek diğer faydalar: ortak kodu tek bir yere toplamak, klasik gerçekleştirimdeki  "kendi kendine atama" _(self assignment)_ kontrolünü yapmamak.
-+ Verim açısından (duruma göre) ciddi bir ekstra maliyeti olabilir. _(Howard Hinnant)_
++ Verim açısından (duruma göre) ciddi bir ekstra maliyeti olabilir. 
+  + Birçok  sınıf için ayrı ayrı yazılmış _copy assignment_ ve _copy constructor_ daha etkin bir kod oluşturur. 
+  + _strong exception guaarantee_ istenmiyor ise neden verimden _(efficiency)_ taviz verelim?
+  + dileyen _generic_ strong exception guarantee sağlayan bir fonksiyonu kullanabilir:
+
+```
+template <typename T>
+T& strong_assign(T& dest, T source)
+{
+	using std::swap;
+	swap(dest, source);
+	return dest;
+}
+```` 
+_(Howard Hinnant)_
 
 + copy-constructor'ı kullanarak atamada kullanılacak (atama operatörünün sağ tarafındaki) sınıf nesnesinin (yerel-geçici nesne olarak) bir kopyasını oluşturuyoruz.
 + Sonra _swap_ fonksiyonuna çağrı yaparak eski veriyi yeni veri ile takas ediyoruz.
