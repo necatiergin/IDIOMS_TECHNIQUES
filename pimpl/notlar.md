@@ -50,8 +50,10 @@ Sınıfın  bir _private_ fonksiyonunda değişiklik yaptığımızda bu durum
 	- _function overload resolution_'ı etkiler.
 	- Önce _overload resolution_ yapılır sonra erişim kontrolü gerçekleşir.
 
-Büyük projelerde derleme süreleri ciddi oranda kısalıyor. Bunun başlıca nedeni başlık dosyalarındaki _include_ komutlarının sayısının azalması.
+- Büyük projelerde derleme süreleri ciddi oranda kısalıyor. Bunun başlıca nedeni başlık dosyalarındaki _include_ komutlarının sayısının azalması.
 Kritik sınıflarda _pimpl_ idiyomunun kullanılması projenin toplam derleme süresini 2 - 4 kat kadar kısaltabiliyor. _(Herb Sutter - john Lakos)_
+
+- _pimpl_ idiyomu kullanıldığında _strong exception_ güvencesi vermek (copy swap idiyomu ile)  daha kolay ve pratik hale geliyor.
 
 - _pimpl_ idiyomu şüphesiz ek bir maliyet getiriyor. sınıfın veri elemanlarını tutan _pimpl_ nesnesi dinamik olarak oluşturuluyor ve onun için bir bellek alanı ediniliyor _(allocate ediliyor)_.
 - dinamik bellek ediniminden kaçınmak için
