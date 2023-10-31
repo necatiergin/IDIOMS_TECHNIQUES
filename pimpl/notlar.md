@@ -1,4 +1,4 @@
-- Pimpl, en çok kullanılan tekniklerden biri. _pointer implementation_ sözcüklerinden uydurulmuş. Bu idiyom farklı terimlerle anılıyor:
+- Pimpl, en çok kullanılan tekniklerden biri. _pointer to implementation_ sözcüklerinden uydurulmuş. Bu idiyom farklı terimlerle anılıyor:
   - pimpl
   - opaque pointer
   - handle body
