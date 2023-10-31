@@ -55,3 +55,6 @@ Sınıfın  bir _private_ fonksiyonunda değişiklik yaptığımızda bu durum
 	- özelleştirilmiş bir _allocator_ kullanılabilir. 
 	- ya da _"fast pimple idiom"_ tercih edilebilir. 
 Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve maintenance tarafında sorun çıkartabilir.
+
+#### okunmasında fayda olan bazı bağlantılar
+[Pimp my pimpl - Marc Mutz](https://marcmutz.wordpress.com/translated-articles/pimp-my-pimpl/) <br>
