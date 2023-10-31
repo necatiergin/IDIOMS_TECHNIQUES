@@ -62,4 +62,6 @@ Kritik sınıflarda _pimpl_ idiyomunun kullanılması projenin toplam derleme s�
 Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve _maintanance_ tarafında sorun çıkartabilir.
 
 #### okunmasında fayda olan bazı bağlantılar
+
+[PIpmp - cppreference](https://en.cppreference.com/w/cpp/language/pimpl<br>
 [Pimp my pimpl - Marc Mutz](https://marcmutz.wordpress.com/translated-articles/pimp-my-pimpl/) <br>
