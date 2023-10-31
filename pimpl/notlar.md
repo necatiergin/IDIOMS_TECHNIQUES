@@ -25,3 +25,14 @@ class Nec {
 	std::unique_ptr<pimpl> mp;
 };
 ```
+
+Sınıfın _private_ veri elemanlarında bir değişiklik yaptığımızda sınıf nesnesinin temsili _(object layout)_ değişebilir.
+
+Veri elemanlarının değiştirilmesinden ne kast ediyoruz?
+- yeni bir eleman eklenmesi
+- var olan bir elemanın silinmesi
+- bir elemanın türünün değiştirilmesi
+
+Sınıfın  bir _private_ fonksiyonunda değişiklik yaptığımızda bu durum
+	- _function overload resolution_'ı etkiler.
+	- Önce _overload resolution_ yapılır sonra erişim kontrolü gerçekleşir.
