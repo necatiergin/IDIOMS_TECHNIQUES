@@ -1,0 +1,6 @@
+- Pimpl, en çok kullanılan tekniklerden biri. pointer implementation sözcüklerinden uydurulmuş. Bu idiyom farklı terimlerle anılıyor:
+  - pimpl
+  - opaque pointer
+  - handle body
+  - d pointer
+  - cheshire cat
