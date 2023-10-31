@@ -9,7 +9,8 @@
 - Bu teknikteki genel amaç sınıfın arayüzü ile sınıfın gerçekleştirimi arasındaki bağımlılığı ortadan kaldırmak. 
 - Sınıfın gerçekleştiriminde bir değişiklik yapıldığında müşteri kodların bundan etkilenmemesini sağlamak.
 - Sınıfa kararlı bir _"abstract binary interface"_ kazandırmak.
-- Derleme sürelerini kısaltmak. Başlık dosyaları başlık dosyalarını include etmek zorunda kalmıyor. 
+- Derleme sürelerini kısaltmak. Başlık dosyaları başlık dosyalarını include etmek zorunda kalmıyor.
+- Sınıfın gerçekleştirimi hakkında kullanıcı kodlara bilgi vermemek (bunu gizli tutmak).
 
 #### nasıl gerçekleştiriliyor?
 
