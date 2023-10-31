@@ -10,3 +10,7 @@
 - Sınıfa kararlı bir "abstract binary interface" kazandırmak.
 - derleme sürelerini kısaltmak.
 
+#### nasıl gerçekleştiriliyor?
+
+- Sınıfın _private_ bölümünü (private veri elemanlarını ve private üye fonksiyonlarını) gizliyoruz.
+- sınıfın veri elemanları ve üye fonksiyonları impelemtasyon dosyasında tanımlanan ancak başlık dosyasında bildirilen bir sınıfın elemanları yapılıyor. 
