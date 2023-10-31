@@ -65,7 +65,8 @@ Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve _maintanance_
 
 #### okunmasında fayda olan bazı bağlantılar
 
-[PIpmp - cppreference](https://en.cppreference.com/w/cpp/language/pimpl<br>
+[PIpmp - cppreference](https://en.cppreference.com/w/cpp/language/pimpl)<br>
 [Pimp my pimpl - Marc Mutz](https://marcmutz.wordpress.com/translated-articles/pimp-my-pimpl/) <br>
 (http://www.gotw.ca/gotw/028.htm) <br>
 (https://herbsutter.com/gotw/_100/)<br>
+(https://www.cppstories.com/2018/01/pimpl/)
