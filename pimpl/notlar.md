@@ -40,7 +40,7 @@ Sınıfın  bir _private_ fonksiyonunda değişiklik yaptığımızda bu durum
 	- _function overload resolution_'ı etkiler.
 	- Önce _overload resolution_ yapılır sonra erişim kontrolü gerçekleşir.
 
-- _pimpl_ idiyomu şüphesiz ek bir maliyet getiriyor. sınıfın veri elemanlarını tutan _pimpl_ nesnesi dinamik olarak oluşturuluyor ve onun için bir bellek alanı ediniliyor (allocate ediliyor).
+- _pimpl_ idiyomu şüphesiz ek bir maliyet getiriyor. sınıfın veri elemanlarını tutan _pimpl_ nesnesi dinamik olarak oluşturuluyor ve onun için bir bellek alanı ediniliyor _(allocate ediliyor)_.
 - dinamik bellek ediniminden kaçınmak için
 	- özelleştirilmiş bir _allocator_ kullanılabilir. 
 	- ya da _"fast pimple idiom"_ tercih edilebilir. 
