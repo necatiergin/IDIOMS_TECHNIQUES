@@ -14,8 +14,17 @@
 #### nasıl gerçekleştiriliyor?
 
 - Sınıfın _private_ bölümünü (_private_ veri elemanlarını ve _private_ üye fonksiyonlarını) gizliyoruz.
-- sınıfın veri elemanları ve üye fonksiyonları implementasyon dosyasında tanımlanan ancak başlık dosyasında bildirilen bir sınıfın elemanları yapılıyor. Sınıf bu türden bir pointer ya da _smart pointer_ (_std::unique_ptr_) veri elemanına sahip oluyor. Eski gerçekleştirimlerde sınıfın veri elemanı ham pointer _(raw pointer)_ yapılıyordu. Şimdi artık veri elemanı  _std::unique_ptr_ sınıfı türünden yapılıyor.
+- sınıfın veri elemanları ve üye fonksiyonları implementasyon dosyasında tanımlanan ancak başlık dosyasında bildirilen bir sınıfın elemanları yapılıyor. Sınıf bu türden bir _pointer_ ya da _smart pointer_ (_std::unique_ptr_) veri elemanına sahip oluyor. Eski gerçekleştirimlerde sınıfın veri elemanı ham pointer _(raw pointer)_ yapılıyordu:
 
+```
+class Nec {
+	//...
+	struct pimpl;
+	pimple*  mp;
+};
+```
+
+Günümüzde artık veri elemanı _std::unique_ptr_ sınıfı türünden yapılıyor.
 
 ```
 #include <memory>
