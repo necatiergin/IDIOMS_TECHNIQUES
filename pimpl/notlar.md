@@ -55,13 +55,17 @@ Kritik sınıflarda _pimpl_ idiyomunun kullanılması projenin toplam derleme s�
 
 - _pimpl_ idiyomu kullanıldığında _strong exception_ güvencesi vermek (copy swap idiyomu ile)  daha kolay ve pratik hale geliyor.
 
+#### Olası dezavantajlar
 - _pimpl_ idiyomu şüphesiz ek bir maliyet getiriyor. sınıfın veri elemanlarını tutan _pimpl_ nesnesi dinamik olarak oluşturuluyor ve onun için bir bellek alanı ediniliyor _(allocate ediliyor)_.
 - dinamik bellek ediniminden kaçınmak için
 	- özelleştirilmiş bir _allocator_ kullanılabilir. 
 	- ya da _"fast pimple idiom"_ tercih edilebilir. 
 Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve _maintanance_ tarafında sorun çıkartabilir.
+- debug süreci daha zor olabilir.
 
 #### okunmasında fayda olan bazı bağlantılar
 
 [PIpmp - cppreference](https://en.cppreference.com/w/cpp/language/pimpl<br>
 [Pimp my pimpl - Marc Mutz](https://marcmutz.wordpress.com/translated-articles/pimp-my-pimpl/) <br>
+(http://www.gotw.ca/gotw/028.htm) <br>
+(https://herbsutter.com/gotw/_100/)<br>
