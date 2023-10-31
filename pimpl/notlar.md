@@ -8,7 +8,7 @@
 
 - Bu teknikteki genel amaç sınıfın arayüzü ile sınıfın gerçekleştirimi arasındaki bağımlılığı ortadan kaldırmak. 
 - Sınıfın gerçekleştiriminde bir değişiklik yapıldığında müşteri kodların bundan etkilenmemesini sağlamak.
-- Sınıfa kararlı bir _"abstract binary interface"_ kazandırmak.
+- Sınıfa kararlı bir _"abstract binary interface"_ _(binary compatibility)_ kazandırmak.
 - Derleme sürelerini kısaltmak. Başlık dosyaları başlık dosyalarını include etmek zorunda kalmıyor.
 - Sınıfın gerçekleştirimi hakkında kullanıcı kodlara bilgi vermemek (bunu gizli tutmak).
 
@@ -50,11 +50,14 @@ Sınıfın  bir _private_ fonksiyonunda değişiklik yaptığımızda bu durum
 	- _function overload resolution_'ı etkiler.
 	- Önce _overload resolution_ yapılır sonra erişim kontrolü gerçekleşir.
 
+Büyük projelerde derleme süreleri ciddi oranda kısalıyor. Bunun başlıca nedeni başlık dosyalarındaki _include_ komutlarının sayısının azalması.
+Kritik sınıflarda _pimpl_ idiyomunun kullanılması projenin toplam derleme süresini 2 - 4 kat kadar kısaltabiliyor. _(Herb Sutter - john Lakos)_
+
 - _pimpl_ idiyomu şüphesiz ek bir maliyet getiriyor. sınıfın veri elemanlarını tutan _pimpl_ nesnesi dinamik olarak oluşturuluyor ve onun için bir bellek alanı ediniliyor _(allocate ediliyor)_.
 - dinamik bellek ediniminden kaçınmak için
 	- özelleştirilmiş bir _allocator_ kullanılabilir. 
 	- ya da _"fast pimple idiom"_ tercih edilebilir. 
-Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve maintenance tarafında sorun çıkartabilir.
+Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve _maintanance_ tarafında sorun çıkartabilir.
 
 #### okunmasında fayda olan bazı bağlantılar
 [Pimp my pimpl - Marc Mutz](https://marcmutz.wordpress.com/translated-articles/pimp-my-pimpl/) <br>
