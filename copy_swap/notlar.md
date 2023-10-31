@@ -10,7 +10,7 @@ Taşıma semantiği _(move semantics)_ söz konusu olduğunda taşıyan atama op
 Verim açısından (duruma göre) ciddi bir ekstra maliyeti olabilir. 
   + Birçok  sınıf için ayrı ayrı yazılmış _copy assignment_ ve _copy constructor_ daha etkin bir kod oluşturur. 
   + _strong exception guaarantee_ istenmiyor ise neden verimden _(efficiency)_ taviz verelim?
-  + dileyen _generic_ strong exception guarantee sağlayan bir fonksiyonu kullanabilir:
+  + dileyen _generic_ bir **strong exception guarantee** sağlayan fonksiyon kullanabilir:
 
 ```
 template <typename T>
@@ -28,12 +28,12 @@ _(Howard Hinnant)_
 + Oluşturduğumuz yerel/geçici nesne eski datayı almış oluyor ve yok ediliyor.
 + Tutulmakta olan veri değişiyor.
 
-Bu idiyomu implemente etmek için nelere ihtiyacımız var?
-+ İşini doğru şekilde yapan bir copy ctor
-+ İşini doğru şekilde yapan bir destructor
-+ (exception throw) etmeyen bir swap işlevi
+Bu idiyomu gerçekleştirmek için nelere ihtiyacımız var?
++ İşini doğru şekilde yapan bir _copy ctor_
++ İşini doğru şekilde yapan bir _destructor_
++ _exception throw_ etmeyen bir _swap_ işlevi
 
-Buradaki swap fonksiyonu, sınıf türünden iki nesneyi eleman-eleman takas eden _exception throw etmeyen_ bir işlev olmalı.
+Buradaki _swap_ fonksiyonu, sınıf türünden iki nesneyi eleman-eleman takas eden _exception throw etmeyen_ bir işlev olmalı.
 Sınıf türünden iki nesneyi takas etmek için standart _swap_ işlevi kullanılmamalı. 
 Çünkü swap işlevinin kendisi _copy ctor_ ve _copy assignment_ fonksiyonlarını çağırıyor.
 Bu durumda atama operatör fonksiyonu özyinelemeli _(recursive)_ olarak atama operator fonksiyonunu çağırıyor olabilir.
@@ -46,11 +46,11 @@ Genel tercih çağrılacak _swap_ işlevinin __friend__ olması.
     + Bu fonksiyon içinde neden using _std::swap_ bildirimi yapıyoruz? 
       Doğrudan std::swap çağrısı yaparsak sınıfın veri elemanları için yazılmış _swap_ işlevleri _ADL_ ile bulunamaz.
   + atama operatör fonksiyonunda 
-    + atama operatörünün sağ tarafındaki nesnenin lokal bir kopyasını oluştur (bu amaçla _copy ctor_ çağrılacak) 
+    + atama operatörünün sağ tarafındaki nesnenin yerel bir kopyasını oluştur (bu amaçla _copy ctor_ çağrılacak) 
       + bunun en kolay yolu atama operatör fonksiyonunun parametresini sınıf türünden yapmak (sınıf türünden const & değil)
       + Böylece hem _copy elision_ olanağı korunmuş olacak hem de ayrı bir_ move assignment_ işlevi yazmak zorunda kalmayacağız.
     + *this nesnesi ile bu kopyayı takas et
-    + Yerel nesne için kapsam _(scope)_ sonunda _destructor_ çağrılacak. Ve eski kaynaklar geri verilecek.
+    + Yerel nesne için kapsam _(scope)_ sonunda _destructor_ çağrılacak böylece eski kaynaklar geri verilecek.
  
   + Sınıf için yazılacak _move ctor_ da _swap_ işlevini çağırabilir. 
    C++11 ile _move ctor_ _default ctor_'a delege edip _swap_ fonksiyonunu çağırabilir. _(delegated constructor)_
