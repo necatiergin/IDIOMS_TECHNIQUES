@@ -69,4 +69,5 @@ Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve _maintanance_
 [Pimp my pimpl - Marc Mutz](https://marcmutz.wordpress.com/translated-articles/pimp-my-pimpl/) <br>
 (http://www.gotw.ca/gotw/028.htm) <br>
 (https://herbsutter.com/gotw/_100/)<br>
-(https://www.cppstories.com/2018/01/pimpl/)
+(https://www.cppstories.com/2018/01/pimpl/)<br>
+(https://www.gamedeveloper.com/programming/in-depth-pimpl-vs-pure-virtual-interfaces)
