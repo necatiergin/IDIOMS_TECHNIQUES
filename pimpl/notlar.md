@@ -13,4 +13,5 @@
 #### nasıl gerçekleştiriliyor?
 
 - Sınıfın _private_ bölümünü (private veri elemanlarını ve private üye fonksiyonlarını) gizliyoruz.
-- sınıfın veri elemanları ve üye fonksiyonları impelemtasyon dosyasında tanımlanan ancak başlık dosyasında bildirilen bir sınıfın elemanları yapılıyor. 
+- sınıfın veri elemanları ve üye fonksiyonları impelemtasyon dosyasında tanımlanan ancak başlık dosyasında bildirilen bir sınıfın elemanları yapılıyor.
+- eski gerçekleştirimlerde sınıfın veri elemanı ham pointer _(raw pointer)_ yapılıyordu. Şimdi artık veri elemanı olarak std::unique_ptr sınıfı türünden yapılıyor.
