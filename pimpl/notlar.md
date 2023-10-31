@@ -1,4 +1,4 @@
-- Pimpl, en çok kullanılan tekniklerden biri. pointer implementation sözcüklerinden uydurulmuş. Bu idiyom farklı terimlerle anılıyor:
+- Pimpl, en çok kullanılan tekniklerden biri. _pointer implementation_ sözcüklerinden uydurulmuş. Bu idiyom farklı terimlerle anılıyor:
   - pimpl
   - opaque pointer
   - handle body
@@ -7,8 +7,8 @@
 
 - Bu teknikteki genel amaç sınıfın arayüzü ile sınıfın gerçekleştirimi arasındaki bağımlılığı ortadan kaldırmak. 
 - Sınıfın gerçekleştiriminde bir değişiklik yapıldığında müşteri kodların bundan etkilenmemesini sağlamak.
-- Sınıfa kararlı bir "abstract binary interface" kazandırmak.
-- derleme sürelerini kısaltmak.
+- Sınıfa kararlı bir _"abstract binary interface"_ kazandırmak.
+- Derleme sürelerini kısaltmak. Başlık dosyaları başlık dosyalarını include etmek zorunda kalmıyor. 
 
 #### nasıl gerçekleştiriliyor?
 
