@@ -71,4 +71,5 @@ Bu tür yöntemler de tipik olarak karmaşıklığı arttırır ve _maintanance_
 (http://www.gotw.ca/gotw/028.htm) <br>
 (https://herbsutter.com/gotw/_100/)<br>
 (https://www.cppstories.com/2018/01/pimpl/)<br>
-(https://www.gamedeveloper.com/programming/in-depth-pimpl-vs-pure-virtual-interfaces)
+(https://www.gamedeveloper.com/programming/in-depth-pimpl-vs-pure-virtual-interfaces)<br>
+(https://www.cppstories.com/2018/01/pimpl-interface/)<br>
