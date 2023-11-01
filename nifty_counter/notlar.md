@@ -15,7 +15,7 @@ Burada kullanılan standart kütüphane öğelerini bilmiyorsanız buraya takıl
 Stream& scout = reinterpret_cast<Stream&> (stream_buf);
 ```
 - İlk _StreamInıtializer_ nesnesi hayata geldiğinde çağrılan _StreamInıtializer_ _constructor_'u, _placement new_ ifadesi ile _Stream_ nesnesinin _constructor_'unun çağrılmasını sağlıyor.
-- Son _StreamInitializer_ nesnesinin _destructor_'u ise _Stream_ nesnesinin destructor'unu çağırıyor.
+- Son _StreamInitializer_ nesnesinin _destructor_'u ise _Stream_ nesnesinin _destructor_'unu çağırıyor.
 <!--
 This workaround is necessary because defining a Stream variable within Stream.cpp - be it static or not - will define it after the StreamInitializer, 
 which is defined by including the header. 
