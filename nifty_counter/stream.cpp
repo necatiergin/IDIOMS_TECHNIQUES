@@ -1,17 +1,31 @@
-#ifndef STREAM_H
-#define STREAM_H
+// Stream.cpp
+//#include "Stream.h"
 
-class Stream {
-public:
-	Stream();
-	~Stream();
-};
+#include <new>         // placement new
+#include <type_traits> // aligned_storage
 
-extern Stream& gstream;		//global stream object
+static int nifty_counter; // zero initialized at load time
+//static typename std::aligned_storage<sizeof(Stream), alignof (Stream)>::type stream_buf; // memory for the stream object
+alignas(Stream) std::byte stream_buf[sizeof(Stream)];
 
-static struct StreamInitializer {
-	StreamInitializer();
-	~StreamInitializer();
-} gstreamInitializer;  // static initializer for every translation unit
+Stream& stream = reinterpret_cast<Stream&> (stream_buf);
 
-#endif 
+Stream::Stream()
+{
+	// initialize things
+}
+Stream::~Stream()
+{
+	// clean-up
+}
+
+StreamInitializer::StreamInitializer()
+{
+	if (nifty_counter++ == 0) new (&stream) Stream(); // placement new
+}
+StreamInitializer::~StreamInitializer()
+{
+	if (--nifty_counter == 0) (&stream)->~Stream();
+}
+
+
