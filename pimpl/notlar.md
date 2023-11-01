@@ -7,7 +7,7 @@
   - compiler firewall
 
 - Bu teknikteki genel amaç sınıfın arayüzü ile sınıfın gerçekleştirimi arasındaki bağımlılığı ortadan kaldırmak. 
-- Sınıfın gerçekleştiriminde bir değişiklik yapıldığında müşteri kodların bundan etkilenmemesini sağlamak.
+- Sınıfın gerçekleştiriminde bir değişiklik yapıldığında müşteri kodların bundan etkilenmemesini sağlamak. Hizmet veren kodlar değiştiğinde hizmet alan kodların yeniden derlenmesi gerekmeyecek. 
 - Sınıfa kararlı bir _"abstract binary interface"_ _(binary compatibility)_ kazandırmak.
 - Derleme sürelerini kısaltmak. Başlık dosyaları başlık dosyalarını include etmek zorunda kalmıyor.
 - Sınıfın gerçekleştirimi hakkında kullanıcı kodlara bilgi vermemek (bunu gizli tutmak).
