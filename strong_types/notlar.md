@@ -2,6 +2,7 @@
 - Kodun niyetini hem derleyiciye hem de kodu okuyan programcılara daha iyi anlatır.
 
 - Güçlü türler, türden bağımsız ince bir sarmalayıcı sınıf _(thin wrapper)_ olarak ifade edilebildiklerinden verim açısından bir dezavantaj oluşturmazlar.
+Derleyiciler (tipik olarak) tamamen aynı assembly kodunu üretiyorlar.
 
 ```
 
