@@ -23,8 +23,14 @@ private:
     T mval;
 };
 
-using Kilogram = NamedType<double, struct KilogramTag>;
-using Length = NamedType<double, struct LengthTag>;
+using Weight = NamedType<double, struct KilogramTag>;
+using Height = NamedType<double, struct LengthTag>;
+
+class Athlete {
+public:
+    Athlete(Weight, Height);
+    //...
+};
 
 ```
 <!--
