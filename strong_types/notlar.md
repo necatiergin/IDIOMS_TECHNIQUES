@@ -22,6 +22,10 @@ public:
 private:
     T mval;
 };
+
+using Kilogram = NamedType<double, struct KilogramTag>;
+using Length = NamedType<double, struct LengthTag>;
+
 ```
 <!--
 -->
