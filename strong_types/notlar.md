@@ -1,2 +1,3 @@
 - Güçlü türler _(strong types)_, kodun ifade gücünü artırmaya yönelik basit ve etkili bir araçtır. 
 - Kodun niyetini hem derleyiciye hem de kodu okuyan programcılara daha iyi anlatır.
+- Performans açısından sorun var mı?
