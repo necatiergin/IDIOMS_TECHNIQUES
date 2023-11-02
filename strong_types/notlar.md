@@ -32,6 +32,7 @@ public:
     //...
 };
 
+Athlete ax{Weight(65.30, 182.);
 ```
 <!--
 -->
