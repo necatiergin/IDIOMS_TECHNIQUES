@@ -7,7 +7,7 @@ int main()
 	using namespace std;
 
 	array ar{ -5, 20, 10, 17, 3, -9, 0, 40, -9, 5};
-	for (auto i : ar)
+	for (const int  i : ar)
 		cout << i << ' ';
 	cout << '\n';
 
@@ -18,7 +18,7 @@ int main()
 
 	transform(begin(ar), end(ar), begin(ar), [low, high](int x) {return clamp(x, low, high); });
 
-	for (auto i : ar)
+	for (const int i : ar)
 		cout << i << ' ';
 	cout << '\n';
 }
