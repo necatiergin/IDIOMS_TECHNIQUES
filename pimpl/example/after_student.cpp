@@ -4,10 +4,10 @@
 #include <string>
 
 
-class Student::pimpl {
+class Student::StudentImpl{
 
 public:
-	pimpl(const char *pname, const char *psurname) : m_name{pname} ,m_surname{psurname} {}
+	StudentImpl(const char *pname, const char *psurname) : m_name{pname} ,m_surname{psurname} {}
 
 	void add_grade(int grade)
 	{
@@ -31,20 +31,35 @@ private:
 };
 
 
-Student::Student(const char* pname, const char* psurname) : mp{ std::make_unique<Student::pimpl>(pname, psurname) }
+Student::Student(const char* pname, const char* psurname) : mp{ std::make_unique<Student::StudentImpl>(pname, psurname) }
 {
 	///
 }
+
 Student::~Student() = default;
+
+Student::Student(Student&& other)noexcept = default;
+Student& Student::operator=(Student&& other)noexcept = default;
+
+Student::Student(const Student& other) : mp(new StudentImpl(*other.mp))
+{}
+
+Student& Student::operator=(const Student& other)
+{
+	if (this != &other)
+		*mp = *other.mp;
+
+	return *this;
+}
 
 void Student::add_grade(int grade)
 {
-	mp->add_grade(grade);
+	Pimpl()->add_grade(grade);
 }
 
 void Student::print()const
 {
-	mp->print();
+	Pimpl()->print();
 }
 
 
