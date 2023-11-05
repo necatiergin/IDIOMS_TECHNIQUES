@@ -10,14 +10,17 @@ public:
 	~Student();
 	
 	Student(const Student&);
-	Student& operator=(const Student&);
+	Student& operator=(Student);
 	Student(Student&&)noexcept;
 	Student& operator=(Student&&)noexcept;
 
 	void add_grade(int);
 	void print()const;
 	// other public members
-
+	void swap(Student& other)
+	{
+		std::swap(mp, other.mp);
+	}
 private:
 	class StudentImpl;
 	std::unique_ptr<StudentImpl> mp;
