@@ -44,10 +44,9 @@ Student& Student::operator=(Student&& other)noexcept = default;
 Student::Student(const Student& other) : mp(new StudentImpl(*other.mp))
 {}
 
-Student& Student::operator=(const Student& other)
+Student& Student::operator=(Student other)
 {
-	if (this != &other)
-		*mp = *other.mp;
+	swap(other);
 
 	return *this;
 }
