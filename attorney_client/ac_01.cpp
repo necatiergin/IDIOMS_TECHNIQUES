@@ -4,7 +4,7 @@ class Nec {
 public:
     void print()const
     {
-        std::cout << "mx = " << mx << " " << " my = " << my << "\n";
+        std::cout << "mx = " << mx << " " << " my = " << my << '\n';
     }
 private:
     int mx{}, my{};
@@ -46,7 +46,7 @@ public:
     {
         Helper::pfunc1(r);
         auto a{ Helper::get_mx(r) };
-        std::cout << "a = " << a << "\n";
+        std::cout << "a = " << a << '\n';
     }
 };
 
