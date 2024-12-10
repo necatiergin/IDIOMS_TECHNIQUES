@@ -5,6 +5,6 @@
 
 int main()
 {
-    for (long long cnt{ 0 }, a{ 0 }, b{ 1 }; cnt < 90; a = std::exchange(b, a + b), ++cnt)
+    for (auto cnt{ 0ull }, a{ 0ull }, b{ 1ull }; cnt < 90; a = std::exchange(b, a + b), ++cnt)
         std::print("fib[{}] = {}\n", cnt, a);
 }
