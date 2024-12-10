@@ -1,16 +1,29 @@
-#include <utility>
+#include <string>
+#include <iostream>
 
 struct Nec
 {
-    Nec(Nec&& other) noexcept : mval{ std::exchange(other.mval, 0) } {}
+    Nec(){}
+    Nec(Nec&& other) noexcept : mstr{ std::exchange(other.mstr, {})} {}
 
     Nec& operator=(Nec&& other) noexcept
     {
         if (this != &other)
-            mval = std::exchange(other.mval, 0); 
+            mstr = std::exchange(other.mstr, 0);
 
         return *this;
     }
-private:
-    int mval;
+
+    std::string mstr{ "necati ergin" };
 };
+
+
+int main()
+{
+    Nec x;
+
+    auto y = std::move(x);
+
+    std::cout << x.mstr.size() << '\n';
+    std::cout << y.mstr.size() << '\n';
+}
