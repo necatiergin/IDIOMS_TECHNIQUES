@@ -3,13 +3,11 @@
 + Sınıf nesneleri üstünde işlem yapacak bir fonksiyonun sınıfın içinde _friend_ anahtar sözcüğü ile _namespace_ kapsamında _(namespace scope)_ tanımlanması.
 + Özellikle operator fonksiyonları için tercih ediliyor.
 + Bu durumda fonksiyon ismi _ADL_ ile bulunuyor. 
-Bu fonksiyonları _ADL_ dışında çağırmak mükün olmadığından bu fonksiyonlar gizlenmiş oluyor. 
+Bu fonksiyonları _ADL_ dışında çağırmak mümkün olmadığından bu fonksiyonlar gizlenmiş oluyor. 
 + Hata mesajları daha kısa oluyor. Verilen örneklere bakınız. 
 + Derleme süresi kısalıyor.
 + _hidden friend_'ler ile _customization point_ oluşturuluyor. (Derste anlatıyorum)
 + İstenmeyen örtülü tür dönüşümleri engellenmiş oluyor. (Örneğe bakınız)
-
-Derste ayrıntılı olarak anlatıyorum.
 
 okumakta fayda olan bağlantılar:
 
