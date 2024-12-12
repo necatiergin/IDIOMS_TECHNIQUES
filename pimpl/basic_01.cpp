@@ -64,11 +64,10 @@ Nec::Nec(const Nec& rhs) : m_pimpl(new NecImpl(*rhs.m_pimpl))
 Nec& Nec::operator=(const Nec& other)
 {
     if (this != &other)
-        *m_pimpl = *other.m_pimpl;
+        m_pimpl.reset(new NecImpl(*other.m_pimpl));
 
     return *this;
 }
-
 
 void Nec::foo()
 {
