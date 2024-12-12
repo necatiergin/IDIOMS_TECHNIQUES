@@ -23,7 +23,7 @@ T& strong_assign(T& dest, T source)
 ```` 
 _(Howard Hinnant)_
 
-+ copy-constructor'ı kullanarak atamada kullanılacak (atama operatörünün sağ tarafındaki) sınıf nesnesinin (yerel-geçici nesne olarak) bir kopyasını oluşturuyoruz.
++ _copy-constructor_'ı kullanarak atamada kullanılacak (atama operatörünün sağ tarafındaki) sınıf nesnesinin (yerel-geçici nesne olarak) bir kopyasını oluşturuyoruz.
 + Sonra _swap_ fonksiyonuna çağrı yaparak eski veriyi yeni veri ile takas ediyoruz.
 + Oluşturduğumuz yerel/geçici nesne eski datayı almış oluyor ve yok ediliyor.
 + Tutulmakta olan veri değişiyor.
