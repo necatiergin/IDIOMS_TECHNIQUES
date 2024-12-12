@@ -19,7 +19,7 @@ concept enumtype = std::is_enum_v<T>;
 template <enumtype T>
 auto get_enum_value(const T& e)
 {
-    return static_cast<std::underlying_type_t<T>>(e);
+    return +static_cast<std::underlying_type_t<T>>(e);
 }
 
 int main()
