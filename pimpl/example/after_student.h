@@ -1,4 +1,4 @@
-#pragma once
+cept#pragma once
 
 
 // other include files
@@ -17,7 +17,7 @@ public:
 	void add_grade(int);
 	void print()const;
 	// other public members
-	void swap(Student& other)
+	void swap(Student& other) noexcept
 	{
 		std::swap(mp, other.mp);
 	}
