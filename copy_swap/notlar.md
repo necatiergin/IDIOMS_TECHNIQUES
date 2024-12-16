@@ -55,4 +55,4 @@ Genel tercih çağrılacak _swap_ işlevinin __friend__ olması.
   + Sınıf için yazılacak _move ctor_ da _swap_ işlevini çağırabilir. 
    C++11 ile _move ctor_ _default ctor_'a delege edip _swap_ fonksiyonunu çağırabilir. _(delegated constructor)_
 
-  + _Howard Hinnant_ copy & swap idiyomunun muhaliflerinden biri.
+  + _Howard Hinnant_ _copy & swap_ idiyomunun muhaliflerinden biri.
