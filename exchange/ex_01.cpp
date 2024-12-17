@@ -1,3 +1,7 @@
+// implementation of std::exchange
+#include <type_traits>
+#include <utility>
+
 template<class T, class U = T>
 constexpr // Since C++20
 T exchange(T& obj, U&& new_value)
