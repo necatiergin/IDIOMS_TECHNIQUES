@@ -1,4 +1,5 @@
 #### hidden friends
+Bir sınıf tanımı içinde sınıfın üye fonksiyonu olmayan ve sınıf tanımının içinde yer aldığı isim alanında _(namespace)_ bulunan bir fonksiyon _friend_ bildirimiyle sınıf içinde tanımlanabilir. Böyle fonksiyonlara _"hidden friend"_ denmektedir. BU fonksiyonlar sınıfın _friend_'i olduklarından sınıfın _private_ bölümüne erişebilirler.
 
 + Sınıf nesneleri üstünde işlem yapacak bir fonksiyonun sınıfın içinde _friend_ anahtar sözcüğü ile _namespace_ kapsamında _(namespace scope)_ tanımlanması.
 + Özellikle operator fonksiyonları için tercih ediliyor.
