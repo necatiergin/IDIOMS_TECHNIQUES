@@ -17,14 +17,14 @@ template <typename T>
 concept enumtype = std::is_enum_v<T>;
 
 template <enumtype T>
-auto get_enum_value(const T& e)
+constexpr auto get_enum_value(const T& e)
 {
     return +static_cast<std::underlying_type_t<T>>(e);
 }
 
 int main()
 {
-    Fruit f { Fruit::Grape};
+    constexpr Fruit f{ Fruit::Grape };
+    constexpr auto val = +get_enum_value(f);
 
-    std::cout << "Enum value: " << +get_enum_value(f) << '\n';
 }
