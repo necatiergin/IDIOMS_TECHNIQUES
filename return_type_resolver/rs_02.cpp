@@ -3,6 +3,7 @@
 #include <iostream>
 #include <set>
 #include <list>
+#include <ranges>
 
 class Range {
     const int m_from;
@@ -21,11 +22,13 @@ public:
         for (int i{ m_from }; i < m_to; ++i)
             con.insert(con.end(), i);
 
+        //auto rng = std::ranges::iota_view{ m_from, m_to };
+        //Con con(rng.begin(), rng.end());
+
+
         return con;
     }
 };
-
-
 
 int main()
 {
