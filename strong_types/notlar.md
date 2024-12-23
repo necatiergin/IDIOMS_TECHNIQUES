@@ -1,7 +1,7 @@
 - Güçlü türler _(strong types)_, kodun ifade gücünü artırmaya yönelik basit ve etkili bir araçtır. 
 - Kodun niyetini hem derleyiciye hem de kodu okuyan programcılara daha iyi anlatır.
 
-- Güçlü türler, türden bağımsız ince bir sarmalayıcı sınıf _(thin wrapper)_ olarak ifade edilebildiklerinden verim açısından bir dezavantaj oluşturmazlar.
+- Güçlü türler, türden bağımsız ince bir sarmalayıcı sınıf _(thin wrapper)_ olarak ifade edilebildiklerinden verim açısından bir dezavantaj oluşturmaz.
 Derleyiciler (tipik olarak) tamamen aynı _assembly_ kodunu üretiyorlar _(zero-cost abstraction)_.
 
 ```
