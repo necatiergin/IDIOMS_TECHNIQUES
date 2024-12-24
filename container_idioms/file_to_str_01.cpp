@@ -1,8 +1,7 @@
-#include <vector>
-#include <iostream>
-#include <random>
-#include <algorithm>
+#include <string>
 #include <fstream>
+#include <iterator>
+#include <iostream>
 
 std::string file_to_str(const std::string& filename)
 {
