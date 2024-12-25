@@ -1,12 +1,18 @@
 #include <concepts>
 
-template<typename F>
+template<typename T>
+concept ScopeGuardCallable = requires(const T& callable) {
+	{ callable() } noexcept -> std::same_as<void>;
+};
+
+template<ScopeGuardCallable F>
 class ScopeGuard {
 public:
     ScopeGuard(F f) : m_func(f) {}
     ~ScopeGuard() { m_func(); }
     ScopeGuard(const ScopeGuard&) = delete;
     ScopeGuard& operator=(const ScopeGuard&) = delete;
+
 private:
     F m_func;
 };
@@ -35,18 +41,18 @@ bool do_something()
     ResourceX* x_ptr = acquire_x();
     if (!x_ptr)
         return false;
-    auto x_guard = ScopeGuard([&x_ptr]() { delete x_ptr; });
+    auto x_guard = ScopeGuard([&x_ptr]()noexcept { delete x_ptr; });
 
     ResourceY y_object;
     init_y(&y_object);
     if (!is_valid(&y_object))
         return false;
 
-    auto y_guard = ScopeGuard([&y_object]() { free_y(&y_object); });
+    auto y_guard = ScopeGuard([&y_object]()noexcept { free_y(&y_object); });
 
     ResourceZ z_object;
     init_z(z_object);
-    auto z_guard = ScopeGuard([&z_object]() { free_z(z_object); });
+    auto z_guard = ScopeGuard([&z_object]() noexcept{ free_z(z_object); });
     if (!z_object.is_valid)
         return false;
 
