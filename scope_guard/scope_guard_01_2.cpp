@@ -1,11 +1,14 @@
-template<class Func>
+#include <concepts>
+
+template<typename F>
 class ScopeGuard {
 public:
-    ScopeGuard(Func f) : storedFunc(f) {}
-    ~ScopeGuard() { storedFunc(); }
-
+    ScopeGuard(F f) : m_func(f) {}
+    ~ScopeGuard() { m_func(); }
+    ScopeGuard(const ScopeGuard&) = delete;
+    ScopeGuard& operator=(const ScopeGuard&) = delete;
 private:
-    Func storedFunc;
+    F m_func;
 };
 
 // resource classes
@@ -13,7 +16,7 @@ class ResourceX {};
 
 class ResourceY {};
 
-struct ResourceZ{
+struct ResourceZ {
     //...
     bool is_valid{};
 };
@@ -38,7 +41,7 @@ bool do_something()
     init_y(&y_object);
     if (!is_valid(&y_object))
         return false;
-    
+
     auto y_guard = ScopeGuard([&y_object]() { free_y(&y_object); });
 
     ResourceZ z_object;
