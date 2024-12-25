@@ -3,7 +3,7 @@ class ResourceX {};
 
 class ResourceY {};
 
-struct ResourceZ{
+struct ResourceZ {
     //...
     bool is_valid{};
 };
@@ -19,31 +19,31 @@ void free_z(ResourceZ);
 
 bool do_something(ResourceY*)
 {
-    ResourceX* first = acquire_x();
-    if (!first) 
+    ResourceX* x_ptr = acquire_x();
+    if (!x_ptr)
         return false;
 
     //...
-    ResourceY second;
-    init_y(&second);
-    if (!is_valid(&second)) {
-        delete first;
+    ResourceY y_object;
+    init_y(&y_object);
+    if (!is_valid(&y_object)) {
+        delete x_ptr;
         return false;
     }
 
-    ResourceZ third;
-    init_z(third);
-    
-    if (!third.is_valid) {
-        delete first;
-        free_y(&second);
+    ResourceZ z_object;
+    init_z(z_object);
+
+    if (!z_object.is_valid) {
+        delete x_ptr;
+        free_y(&y_object);
         return false;
     }
 
     // ...
-    delete first;
-    free_y(&second);
-    free_z(third);
+    delete x_ptr;
+    free_y(&y_object);
+    free_z(z_object);
 
     return true;
 }
