@@ -1,4 +1,4 @@
-#### non-virtual interface
+## non-virtual interface
 
 + İdiyomu ilk tanıtan _Herb Sutter_: <br>
 <<Prefer to use Template Method to make the interface stable and nonvirtual, 
