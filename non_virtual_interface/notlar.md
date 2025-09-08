@@ -9,25 +9,33 @@ while delegating customizable work to nonpublic virtual functions that are respo
 + Sınıfın sanal fonksiyonlarını _public_ yapmak yerine _private_ ya da _protected_ yapıyoruz. 
 Böylece bu fonksiyonlar sınıfın public arayüzünde yer almıyorlar. Bu fonksiyonları sınıfın public arayüzünde yer alan sanal olmayan fonkisyon(lar) çağırıyorlar.
 Eğer taban sınıfın sanal fonksiyonlarının implementasyonu türemiş sınıf kodları tarafından kullanılacak ise bu fonksiyonlar  _protected_ aksi halde _private_ oluyorlar. 
-+ Sınıfın public arayüzünde sanal fonksiyon bulunmuyor.
++ Sınıfın _public_ arayüzünde sanal fonksiyon bulunmuyor. (Bu yüzden _non-virtual interface_ deniyor.)
 
-#### neden böyle yapıyoruz?
+### avantajlar?
 
-+ Sınıfın sanal fonksiyonları türemiş sınıflar için aslında bir customization/specialization noktası. 
+#### güvenli ve kararlı bir arayüz sağlanıyor. (stable public interface)
+  - Kullanıcılar doğrudan sanal fonksiyonları çağırmaz.
+  - Tüm erişim, sınıf tarafından tanımlanmış sabit bir yoldan (non-virtual public fonksiyon) geçer.
+  - Böylece sınıfın davranışı daha öngörülebilir ve kontrollü hale gelir.
+
+#### Sabit Akış (Fixed Execution Flow)
+sanal olmayan public fonksiyon içinde alt sınıfa bırakılmayan genel bir mantık yürütülebilir. Yani taban sınıf türemiş sınıflara kendi sözleşmesini dayatabiliyor. (preconditions - postconditions)
+Örneğin taban sınıfın üye fonksiyonu içinde 
+- loglama yapılabilir
+- kaynak doğrulama yapılabilir.
+- exception handling yapılabilir.
+- senkronizasyon sağlanabilir.
+- eişim kontrolü yapılabilir.
+
+#### customization/specialization noktası. 
+Sınıfın sanal fonksiyonları türemiş sınıflar için aslında bir customization/specialization noktası. 
 Dolayısıyla çoğunlukla bu kodlar implementasyona ilişkin. 
-Sanal fonksiyonları public yaparak interface ile implementasyon'ı birbirinden ayırmamış oluyoruz.
-+ public sanal arayüz bir sınıfın türemiş sınıflara pre-conditions/post_conditions dayatmasını sağlamıyor. 
-Çünkü bu fonksiyonlar çağrıldığında türemiş sınıfların override'ları çağrılmış olacak. 
-Taban sınıf davranış üzerinde daha belirleyici bir rol oynuyor ve sağlayacağı işlevsellik üzerinde garantiler verebiliyor.
+Sanal fonksiyonları _public_ yaparak _interface_ ile _implementasyon_'ı birbirinden ayırmamış oluyoruz.
 
-+ Bu şekilde türemiş sınıfların taban sınıfın yerine geçebilirliği taban sınıf tarafından kontrol edilebiliyor.
+#### implementasyondaki bir değişiklik sınıfın _public_ arayüzünde bir değişimi gerektirmiyor. 
+Taban sınıf daha sağlam _(robust)_ oluyor. Böylece client kodlarda değişiklik yapılması ya da clkiednt kodların tekrar derlenmesi gerekmiyor.
 
-+ verimlilik _(efficiency)_ kaygısı varsa _preconditions_ ve _postconditions_ sınama kodları duruma göre sadece debug sürümünde yer alabilir. 
-+ implementasyondaki bir değişiklik sınıfın _public_ arayüzünde bir değişimi gerektirmiyor. Taban sınıf daha sağlam _(robust)_ oluyor. 
-Böylece client kodlarda değişiklik yapılması gerekmiyor.
-
-+ taban sınıf kendi sözleşmesini dayatabiliyor. (preconditions - postconditions)
-
-+ belirli kodlar türemiş sınıfların implementasyonunda tekrar etmiyor. Bunlar taban sınıfın istediği noktada toplanmış ve kullanılmış oluyorlar. (yani taban sınıfın sanal olmayan fonksiyonu içinde)
+#### kod tekrarı
+Belirli kodlar türemiş sınıfların implementasyonunda tekrar etmiyor. Bunlar taban sınıfın istediği noktada yani taban sınıfın sanal olmayan fonksiyonu içinde toplanmış ve kullanılmış oluyorlar.
 
 
