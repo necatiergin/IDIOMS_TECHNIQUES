@@ -38,4 +38,16 @@ Taban sınıf daha sağlam _(robust)_ oluyor. Böylece client kodlarda değişik
 #### kod tekrarı
 Belirli kodlar türemiş sınıfların implementasyonunda tekrar etmiyor. Bunlar taban sınıfın istediği noktada yani taban sınıfın sanal olmayan fonksiyonu içinde toplanmış ve kullanılmış oluyorlar.
 
+### NVI’nin Dezavantajları
+#### Kod Karmaşıklığı ve Öğrenme Eğrisi
+Yeni başlayanlar için neden “iki katmanlı” fonksiyon yapısına ihtiyaç duyulduğu anlaşılması zor olabilir.
+_virtual_ yerine _override_ edilen fonksiyonlar _protected_ olmalı, bu da kavram karmaşası yaratabilir.
+
+#### sınıf tasarımında fazladan detay
+her bir davranış için hem bir _public wrapper_, hem de _protected virtual_ bir fonksiyon yazmanız gerekir.
+
+
+#### Sanal tabloda (vtable) karmaşıklık yaratabilir
+Vtable kullanımı doğrudan kullanıcı tarafından değil, public fonksiyonlar üzerinden dolaylı olur. Bu bazen debug sürecini zorlaştırabilir.
+
 
