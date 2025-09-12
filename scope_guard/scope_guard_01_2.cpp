@@ -1,17 +1,26 @@
 #include <concepts>
 
 template<typename T>
-concept ScopeGuardCallable = requires(const T& callable) {
-	{ callable() } noexcept -> std::same_as<void>;
+concept ScopeGuardCallable = requires(const T & callable) {
+    { callable() } noexcept -> std::same_as<void>;
 };
 
 template<ScopeGuardCallable F>
 class ScopeGuard {
 public:
     ScopeGuard(F f) : m_func(f) {}
-    ~ScopeGuard() { m_func(); }
+    ~ScopeGuard()
+    {
+        if (!m_released) 
+            m_func();
+    }
+
     ScopeGuard(const ScopeGuard&) = delete;
     ScopeGuard& operator=(const ScopeGuard&) = delete;
+    void release() noexcept 
+    {
+        m_released = true;
+    }
 
 private:
     F m_func;
@@ -52,7 +61,7 @@ bool do_something()
 
     ResourceZ z_object;
     init_z(z_object);
-    auto z_guard = ScopeGuard([&z_object]() noexcept{ free_z(z_object); });
+    auto z_guard = ScopeGuard([&z_object]() noexcept { free_z(z_object); });
     if (!z_object.is_valid)
         return false;
 
