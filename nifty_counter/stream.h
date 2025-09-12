@@ -1,17 +1,25 @@
 #ifndef STREAM_H
 #define STREAM_H
 
+#include <iostream>
+
 class Stream {
 public:
-	Stream();
-	~Stream();
+    Stream();
+    ~Stream();
+    void write(const char* msg);
 };
 
-extern Stream& gstream;		//global stream object
+// global reference to the single shared-variable
+extern Stream& gstream;
 
-static struct StreamInitializer {
-	StreamInitializer();
-	~StreamInitializer();
-} gstreamInitializer;  // static initializer for every translation unit
+// a separate guard for each translation unit
+struct StreamInitializer {
+    StreamInitializer();
+    ~StreamInitializer();
+};
 
-#endif 
+// internal linkage- each TU will have its own object
+static StreamInitializer gstreamInitializer;
+
+#endif
