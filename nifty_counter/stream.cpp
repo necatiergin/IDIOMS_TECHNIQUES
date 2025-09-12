@@ -8,7 +8,7 @@ static int nifty_counter; // zero initialized at load time
 //static typename std::aligned_storage<sizeof(Stream), alignof (Stream)>::type stream_buf; // memory for the stream object
 alignas(Stream) std::byte stream_buf[sizeof(Stream)];
 
-Stream& stream = reinterpret_cast<Stream&> (stream_buf);
+Stream& gstream = reinterpret_cast<Stream&> (stream_buf);
 
 Stream::Stream()
 {
