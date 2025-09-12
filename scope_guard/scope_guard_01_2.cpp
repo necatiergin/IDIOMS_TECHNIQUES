@@ -72,11 +72,17 @@ void init_z(ResourceZ&);
 void free_z(ResourceZ&);
 
 // --- Simple stubs for demo ---------------------------------------------------
-ResourceX* acquire_x() { return new (std::nothrow) ResourceX{}; }
-void free_x(ResourceX* p) { delete p; }
+ResourceX* acquire_x() 
+{ 
+    return new (std::nothrow) ResourceX{}; 
+}
+
+void free_x(ResourceX* p) 
+{ 
+    delete p; 
+}
 
 void init_y(ResourceY&) { /* ... */ }
-
 void free_y(ResourceY&) { /* ... */ }
 
 bool is_valid(const ResourceY&)
