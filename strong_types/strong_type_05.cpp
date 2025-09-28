@@ -7,6 +7,7 @@ struct crtp
     {
         return static_cast<T&>(*this);
     }
+
     T const& underlying() const
     {
         return static_cast<T const&>(*this);
