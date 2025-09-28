@@ -1,6 +1,4 @@
-<!--
 #include <ostream>
-
 
 template <typename T, template<typename> typename crtpType>
 struct crtp
@@ -14,8 +12,6 @@ struct crtp
         return static_cast<T const&>(*this);
     }
 };
-
-
 
 template <typename T>
 struct Addable : crtp<T, Addable>
@@ -43,7 +39,6 @@ struct Multiplicable : crtp<T, Multiplicable> {
         return T(this->underlying().get() * other.get());
     }
 };
-
 
 template <typename T>
 struct Printable : crtp<T, Printable>
