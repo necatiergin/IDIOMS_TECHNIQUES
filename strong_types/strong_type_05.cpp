@@ -3,7 +3,7 @@
 template <typename T, template<typename> typename crtpType>
 struct crtp
 {
-    T& underlying() 
+    T& underlying()
     {
         return static_cast<T&>(*this);
     }
@@ -17,7 +17,7 @@ struct crtp
 template <typename T>
 struct Addable : crtp<T, Addable>
 {
-    T operator+(T const& other) 
+    T operator+(const T& other)const
     {
         return T(this->underlying().get() + other.get());
     }
@@ -26,7 +26,7 @@ struct Addable : crtp<T, Addable>
 template <typename T>
 struct Incrementable : crtp<T, Incrementable>
 {
-    T& operator+=(T const& other)
+    T& operator+=(const T& other)
     {
         this->underlying().get() += other.get();
         return this->underlying();
@@ -35,7 +35,7 @@ struct Incrementable : crtp<T, Incrementable>
 
 template <typename T>
 struct Multiplicable : crtp<T, Multiplicable> {
-    T operator*(T const& other)
+    T operator*(const T& other)
     {
         return T(this->underlying().get() * other.get());
     }
@@ -85,7 +85,4 @@ int main()
     Length lx{ 35.56 }, ly{ 56.24 };
 
     std::cout << lx + ly;
-
-
 }
-//The pick-and-choose interface
