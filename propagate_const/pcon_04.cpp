@@ -8,7 +8,7 @@ public:
 
 class Erg {
 public:
-	Erg(): mp_to_nec{std::make_unique<Nec>()} {}
+	Erg() : mp_to_nec{ std::make_shared<Nec>() } {}
 	void f()
 	{
 		mp_to_nec->foo();
@@ -21,5 +21,5 @@ public:
 		mp_to_nec->bar();
 	}
 private:
-	std::unique_ptr<Nec> mp_to_nec;
+	std::shared_ptr<Nec> mp_to_nec;
 };
