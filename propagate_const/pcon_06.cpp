@@ -1,4 +1,3 @@
-
 template <typename T>
 class deep_const_ptr {
     T* p;
@@ -10,6 +9,10 @@ public:
 
     const T* operator->() const { return p; }
     T* operator->() { return p; }
+
+    const T* get() const { return p; }
+    T* get() { return p; }
+
 };
 
 struct Myclass {
@@ -19,7 +22,7 @@ struct Myclass {
 
 
 class Nec {
-    
+
     //...
     void foo()
     {
